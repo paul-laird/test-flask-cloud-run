@@ -9,20 +9,7 @@ CORS(app)
 
 @app.route("/") #Default - Show Data
 def hello(): # Name of the method
-    
-  a='''cur = mysql.connection.cursor() #create a connection to the SQL instance
-  rv = cur.fetchall() #Retreive all rows returend by the SQL statment
-  Results=[]
-  for row in rv: #Format the Output Results and add to return string
-    Result={}
-    Result['Name']=row[0].replace('\n',' ')
-    Result['Email']=row[1]
-    Result['ID']=row[2]
-    Results.append(Result)
-
-    '''
-  Results=[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}]
-    
+  Results=[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}]    
   response={'Results':Results, 'count':len(Results)}
   ret=app.response_class(
     response=json.dumps(response),
@@ -34,7 +21,7 @@ def hello(): # Name of the method
 
 
 
-@app.route("/")
+@app.route("/hello")
 def hello():
     return "Hello again from Dockerised Flask"
 
