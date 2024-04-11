@@ -4,8 +4,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return '''{"Result":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
+    r= '''{"Result":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
       "count":2}'''
+    ret=app.response_class(
+    response=r,
+    status=200,
+    mimetype='application/json'
+  )
+  return ret
 
 @app.route("/route32a")
 def route32a():
