@@ -10,6 +10,10 @@ def hello():
 def route32a():
     return "Hello from the 32A"
 
+@app.route("/new")
+def newRoute():
+    return "This is a new route"
+
 @app.route("/route")
 def route():
     number=requests.get('number')
