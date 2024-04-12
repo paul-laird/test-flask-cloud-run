@@ -1,7 +1,8 @@
+from flask_cors import CORS
 from flask import Flask
 import requests
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
 
 @app.route("/")
 def hello():
