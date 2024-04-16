@@ -23,7 +23,7 @@ def route32a():
 def newRoute():
     return "This is a new route"
 
-@app.route("index.html")
+@app.route("/index.html")
 def index():
 
     return render_template('index.html')
