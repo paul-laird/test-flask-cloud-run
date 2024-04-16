@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route("/")
 def hello():
-    r= '''{"Result":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
+    r= '''{"Results":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
       "count":2}'''
     ret=app.response_class(
       response=r,
