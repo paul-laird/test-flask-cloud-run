@@ -26,7 +26,7 @@ def newRoute():
     return "This is a new route"
 
 @app.route("/user/<identity>") # PS THIS IS COMPLETELY FAKE
-def newRoute(identity):
+def identity(identity):
     r= '''{"Results":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
       "count":2}'''
     r=list(filter(lambda x:x['ID']==identity),r)
