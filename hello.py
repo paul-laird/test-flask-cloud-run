@@ -28,6 +28,7 @@ def newRoute():
 
 @app.route("/user/<identity>") # PS THIS IS COMPLETELY FAKE
 def identity(identity):
+    identity=int(identity)
     r= json.loads('''{"Results":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
       "count":2}''')
     r['Results']=list(filter(lambda x:x['ID']==identity,r['Results']))
