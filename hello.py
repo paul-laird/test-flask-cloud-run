@@ -28,9 +28,11 @@ def newRoute():
 
 @app.route("/user/<identity>") # PS THIS IS COMPLETELY FAKE
 def identity(identity):
-    r= '''{"Results":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
-      "count":2}'''
-    r=json.dumps(list(filter(lambda x:x['ID']==identity,json.loads(r))))
+    r= json.loads('''{"Results":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
+      "count":2}''')
+    r['Results']=list(filter(lambda x:x['ID']==identity,r['Results']))
+    r['count']=len(r['Results'])
+    r=json.dumps(r)
     ret=app.response_class(
       response=r,
       status=200,
