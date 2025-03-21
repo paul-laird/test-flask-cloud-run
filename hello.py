@@ -3,6 +3,7 @@ from flask import Flask
 import requests
 from flask import request
 from flask import render_template
+import json
 app = Flask(__name__)
 CORS(app)
 
@@ -29,7 +30,7 @@ def newRoute():
 def identity(identity):
     r= '''{"Results":[{"Name":"Paul","Email":"test1@test.ie","ID":1},{"Name":"John","Email":"test2@test.ie","ID":2}],
       "count":2}'''
-    r=list(filter(lambda x:x['ID']==identity,r))
+    r=json.dumps(list(filter(lambda x:x['ID']==identity,json.loads(r))))
     ret=app.response_class(
       response=r,
       status=200,
