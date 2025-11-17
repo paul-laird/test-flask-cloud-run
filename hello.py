@@ -26,9 +26,9 @@ def route32a():
 def newRoute():
     return "This is a new route"
 
-@app.route("/another")
+@app.route("/hello")
 def anotherRoute():
-    return "This is a another new route"
+    return "Postpone the assignment!!!"
 
 @app.route("/user/<identity>") # PS THIS IS COMPLETELY FAKE
 def identity(identity):
