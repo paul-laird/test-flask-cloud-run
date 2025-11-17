@@ -4,6 +4,7 @@ import requests
 from flask import request
 from flask import render_template
 import json
+import os
 app = Flask(__name__)
 CORS(app)
 
@@ -21,6 +22,11 @@ def hello():
 @app.route("/route32a")
 def route32a():
     return "Hello from the 32A"
+
+@app.route("/password")
+def pasw():
+    password = os.getenv('pass')
+    return "The value is: "+password
 
 @app.route("/new")
 def newRoute():
